@@ -1,4 +1,4 @@
-import { CourseFormType, TrainerFormType } from "@/schemas";
+import { CourseFormType } from "@/schemas";
 import { BaseApiService } from "./base-service";
 
 export class CourseServices extends BaseApiService {

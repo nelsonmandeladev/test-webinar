@@ -13,7 +13,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { createCourseAction } from "@/actions/course-actions";
-import { z } from "zod";
 import { useFormStatus } from "react-dom";
 import { useActionState } from "react";
 
