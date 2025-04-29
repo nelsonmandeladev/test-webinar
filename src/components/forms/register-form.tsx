@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
-import { cn } from "@/lib/utils";
+import { buildPathNAme, cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -17,6 +17,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { registerAction } from "@/actions/auth-actions";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 // Type for form state
 export type FormState = {
@@ -90,7 +91,8 @@ export function RegisterForm({
 
     // Initialize form state using useActionState
     const [formState, formAction] = useActionState(registerWithFormState, {});
-
+    const { i18n } = useTranslation();
+    const currentLocale = i18n.language;
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
@@ -155,7 +157,7 @@ export function RegisterForm({
                         </div>
                         <div className="mt-4 text-center text-sm">
                             Already have an account?{' '}
-                            <Link href="/login" className="underline underline-offset-4">
+                            <Link href={buildPathNAme(currentLocale, "/login")} className="underline underline-offset-4">
                                 Login
                             </Link>
                         </div>
