@@ -1,5 +1,5 @@
 import { Button } from "@/components";
-import { CourseCreationForm } from "@/components/forms/course-creation-form";
+import { CourseForm } from "@/components/forms/course-form";
 
 const sampleCourses = [
   {
@@ -53,7 +53,7 @@ export default function Home() {
     <main className="">
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold mb-8">Courses</h1>
-        <CourseCreationForm />
+        <CourseForm />
       </div>
       <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
         <thead>

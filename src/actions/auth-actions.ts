@@ -1,13 +1,13 @@
 "use server";
 
 import { validateFormData } from "@/lib/utils";
-import { loginSchema, registerSchema } from "@/schemas";
+import { LoginSchema, RegisterSchema } from "@/schemas";
 import { AuthService } from "@/services/auth-service";
 import { cookies } from "next/headers";
 
 export async function registerAction(formData: FormData) {
     try {
-        const validatedData = validateFormData(formData, registerSchema);
+        const validatedData = validateFormData(formData, RegisterSchema);
         const { register } = new AuthService();
         return await register(validatedData);
     } catch (error) {
@@ -20,7 +20,7 @@ export async function registerAction(formData: FormData) {
 
 export async function loginAction(formData: FormData) {
     try {
-        const validatedData = validateFormData(formData, loginSchema);
+        const validatedData = validateFormData(formData, LoginSchema);
         const { login } = new AuthService();
         const result = await login(validatedData);
         const access_token = result.response.access_token;

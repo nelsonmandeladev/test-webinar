@@ -6,7 +6,7 @@ export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 export interface ApiRequestOptions {
   method?: HttpMethod;
-  body?: Record<string, string | number | boolean> | FormData;
+  body?: Record<string, string | number | boolean | string[]> | FormData;
   headers?: Record<string, string>;
   authenticated?: boolean;
   query?: Record<string, string | number | boolean | Date>;
@@ -54,7 +54,7 @@ export abstract class BaseApiService {
    */
   protected async getAuthToken(): Promise<string | null> {
     const cookieStore = await cookies();
-    return cookieStore.get("access_token")?.value ?? null;
+    return cookieStore.get("access_token")?.value ?? null
   }
 
   /**

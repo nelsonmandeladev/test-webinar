@@ -5,7 +5,7 @@ declare type ApiResponse<T> = {
 };
 
 declare type ListApiResponse<T> = {
-    datas: T[];
+    data: T[];
     meta: {
         currentPage: number;
         limit: number;
@@ -31,3 +31,16 @@ declare type UserLoginResponseType = {
     access_token: string;
     refresh_token: string;
 };
+
+
+declare type TrainerType = {
+    id: string;
+    name: string;
+    training_subjects: string[];
+    location: string;
+    email: string;
+    user_id: string;
+    createdAt: string,
+    updatedAt: string,
+};
+
