@@ -6,7 +6,6 @@ export default async function Trainers() {
 
     const result = await listTrainingAction();
     const trainers = result?.response?.data ?? [];
-    console.log({ trainers })
 
     return (
         <div className="">

@@ -52,7 +52,6 @@ export function CourseForm() {
         try {
             const result = await createCourseAction(formData);
             const status = result.status;
-            console.log({ result })
             // if your service returns the created/updated entity, treat it as success
             if ([200, 201].includes(status)) {
                 return { success: true };

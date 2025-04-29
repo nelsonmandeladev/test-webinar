@@ -38,7 +38,6 @@ export function AssignRemoveTrainerForm(props: AssignRemoveTrainerFormProps) {
         try {
             formData.append("courseId", course.id)
             const result = await assignTrainerCoursesAction(formData);
-            console.log({ result })
             const status = result.status;
             // if your service returns the created/updated entity, treat it as success
             if ([200, 201].includes(status)) {
