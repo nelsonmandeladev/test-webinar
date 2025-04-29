@@ -44,3 +44,18 @@ declare type TrainerType = {
     updatedAt: string,
 };
 
+
+declare type CourseType = {
+    id: string;
+    name: string;
+    date: string;
+    subject: string;
+    location: string;
+    participants: number;
+    notes: string;
+    price: number;
+    trainer_price: number;
+    trainer_id: string | null;
+    user_id: string;
+    trainer: TrainerType | null;
+};

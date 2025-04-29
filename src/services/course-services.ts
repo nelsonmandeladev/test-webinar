@@ -7,10 +7,11 @@ export class CourseServices extends BaseApiService {
         super();
         this.create = this.create.bind(this);
         this.list = this.list.bind(this);
+        this.assignTrainer = this.assignTrainer.bind(this);
     }
 
-    async create(data: CourseFormType): Promise<ApiResponse<TrainerType>> {
-        return await this.request<TrainerType>(
+    async create(data: CourseFormType): Promise<ApiResponse<CourseType>> {
+        return await this.request<CourseType>(
             `${this.BASE_AUTH_URL}`,
             {
                 method: "POST",
@@ -24,8 +25,8 @@ export class CourseServices extends BaseApiService {
             },
         );
     }
-    async update(data: CourseFormType, trainerId: string): Promise<ApiResponse<TrainerType>> {
-        return await this.request<TrainerType>(
+    async update(data: CourseFormType, trainerId: string): Promise<ApiResponse<CourseType>> {
+        return await this.request<CourseType>(
             `${this.BASE_AUTH_URL}/${trainerId}`,
             {
                 method: "POST",
@@ -35,8 +36,8 @@ export class CourseServices extends BaseApiService {
         );
     }
 
-    async list(): Promise<ApiResponse<ListApiResponse<TrainerType>>> {
-        return await this.request<ListApiResponse<TrainerType>>(
+    async list(): Promise<ApiResponse<ListApiResponse<CourseType>>> {
+        return await this.request<ListApiResponse<CourseType>>(
             `${this.BASE_AUTH_URL}`,
             {
                 method: "GET",
@@ -46,6 +47,16 @@ export class CourseServices extends BaseApiService {
                     limit: 200
                 },
                 tag: "courses-list"
+            },
+        );
+    }
+
+    async assignTrainer(courseId: string, trainerId: string) {
+        return await this.request<CourseType>(
+            `${this.BASE_AUTH_URL}${courseId}/trainer/${trainerId}/assign`,
+            {
+                method: "GET",
+                authenticated: true,
             },
         );
     }

@@ -37,6 +37,11 @@ export const CourseFormSchema = z.object({
     trainer_price: z.string(),
     trainer_id: z.string().optional()
 });
+export const AssignRemoveTrainerFormSchema = z.object({
+    courseId: z.string(),
+    trainerId: z.string(),
+});
 
 export type CourseFormType = z.infer<typeof CourseFormSchema>;
 export type TrainerFormType = z.infer<typeof TrainerFormSchema>;
+export type AssignRemoveTrainerFormType = z.infer<typeof AssignRemoveTrainerFormSchema>;
